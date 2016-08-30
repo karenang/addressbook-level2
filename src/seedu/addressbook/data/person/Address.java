@@ -11,7 +11,7 @@ public class Address {
 	public static final String EXAMPLE = "314, Pie Street, #15-92, 653589";
 	public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses should be in the format: BLOCK, STREET, UNIT, POSTCODE.";
 	public static final String ADDRESS_VALIDATION_REGEX = "\\d{1,3},[\\s\\w]+,[\\s]?[\\d#\\-]+,[\\s]?[\\d]{6}";
-	private static final String ADDRESS_DELIMITER = ",";
+	private static final String ADDRESS_DELIMITER = ", ";
 	
 	private Block block;
 	private Street street;
@@ -75,7 +75,8 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return this.block.toString() + this.street.toString() + this.unit.toString() + this.postCode.toString();
+		String[] segments = {this.block.toString(), this.street.toString(), this.unit.toString(), this.postCode.toString()};
+		return String.join(ADDRESS_DELIMITER, segments); 
 	}
 
 	@Override
@@ -85,8 +86,8 @@ public class Address {
 		}
 		if (other instanceof Address) {
 			Address address = (Address) other; // instanceof handles nulls
-			return this.block == address.block && this.street == address.street && this.unit == address.unit
-					&& this.postCode == address.postCode;
+			return this.block.equals(address.block) && this.street.equals(address.street)
+					&& this.unit.equals(address.unit) && this.postCode.equals(address.postCode);
 		}
 		return false;
 	}
