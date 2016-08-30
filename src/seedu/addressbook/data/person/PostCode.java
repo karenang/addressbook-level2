@@ -18,7 +18,7 @@ public class PostCode {
 			return true;
 		}
 		if (other instanceof PostCode) {
-			return this.toString() == other.toString();
+			return this.toString().equals(other.toString());
 		}
 		return false;
 	}

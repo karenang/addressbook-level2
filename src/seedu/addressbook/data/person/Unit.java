@@ -18,7 +18,7 @@ public class Unit {
 			return true;
 		}
 		if (other instanceof Unit) {
-			return this.toString() == other.toString();
+			return this.toString().equals(other.toString());
 		}
 		return false;
 	}

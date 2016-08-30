@@ -17,8 +17,8 @@ public class Street {
 		if (this == other) {
 			return true;
 		}
-		if (other instanceof Block) {
-			return this.toString() == other.toString();
+		if (other instanceof Street) {
+			return this.toString().equals(other.toString());
 		}
 		return false;
 	}

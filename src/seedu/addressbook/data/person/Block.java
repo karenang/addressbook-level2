@@ -18,7 +18,7 @@ public class Block {
 			return true;
 		}
 		if (other instanceof Block){
-			return this.toString() == other.toString();
+			return this.toString().equals(other.toString());
 		}
 		return false;
 	}
